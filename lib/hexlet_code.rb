@@ -19,15 +19,23 @@ module HexletCode
       @inputs = []
     end
 
-    def input(name, how: nil)
+    def input(name, **options)
+      as = options.delete(:as)
+      attributes = options
+                   .to_a
+                   .map do |element|
+                    key, val = element
+                    %(#{key}="#{val}")
+                    end
+                   .join(' ')
       label = %(<label for="#{name}"\>#{name.capitalize}</label>)
       @inputs << label
-      if how.to_s == 'text'
+      if as == 'text'
         value = @user[name] ? (@user[name]).to_s : name.to_s
-        @inputs << %(<textarea cols="20" rows="40" name="#{name}"\>#{value}</textarea>)
+        @inputs << %(<textarea name="#{name}" #{attributes}\>#{value}</textarea>)
       else
         value = @user[name] ? "value=\"#{@user[name]}\"" : ''
-        @inputs << %(<input name="#{name}" type="text" #{value}>)
+        @inputs << %(<input name="#{name}" #{attributes} #{value}>)
       end
     end
 

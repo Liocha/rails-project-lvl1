@@ -4,6 +4,8 @@
 
 [![Github-Basic-Action](https://github.com/Liocha/rails-project-lvl1/workflows/Github-Basic-Action/badge.svg)](https://github.com/Liocha/rails-project-lvl1/actions)
 
+[![hexlet-check](https://github.com/Liocha/rails-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Liocha/rails-project-lvl1/actions/workflows/hexlet-check.yml)
+
 # HexletCode
 
 Привет любезный и временно далёкий друг мой "#{here_is_your_name}"

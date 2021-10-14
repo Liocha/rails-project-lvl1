@@ -3,7 +3,10 @@
 name: Github-Basic-Action
 on:
   push:
-    branches: [master]
+    branches:
+      - '**'
+    tags:
+      - '**'
 
 jobs:
   lint:
