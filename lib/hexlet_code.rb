@@ -39,8 +39,12 @@ module HexletCode
       end
     end
 
-    def submit(name)
+    def submit(name: '')
+      if name.siz != 0
       @inputs << %(<input name="#{name}" type="submit" value="Save">)
+      else
+      @inputs << %(<input type="submit" value="Save">)
+      end
     end
   end
 
