@@ -39,8 +39,8 @@ module HexletCode
       end
     end
 
-    def submit
-      @inputs << %(<input name="commit" type="submit" value="Save">)
+    def submit(name)
+      @inputs << %(<input name="#{name}" type="submit" value="Save">)
     end
   end
 
