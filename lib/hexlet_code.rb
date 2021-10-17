@@ -30,7 +30,7 @@ module HexletCode
                    .join(' ')
       label = %(<label for="#{name}"\>#{name.capitalize}</label>)
       @inputs << label
-      if as == 'text'
+      if as.to_s == 'text'
         value = @user[name] ? (@user[name]).to_s : name.to_s
         @inputs << %(<textarea name="#{name}" #{attributes}\>#{value}</textarea>)
       else
