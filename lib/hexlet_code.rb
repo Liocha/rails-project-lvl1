@@ -21,26 +21,35 @@ module HexletCode
 
     def input(name, **options)
       as = options.delete(:as)
-      attributes = options
-                   .to_a
-                   .map do |element|
-                    key, val = element
-                    %(#{key}="#{val}")
-                    end
-                   .join(' ')
-      label = %(<label for="#{name}"\>#{name.capitalize}</label>)
+      attributes = atributes_to_string(options)
+      label = get_label(name)
       @inputs << label
       if as.to_s == 'text'
-        value = @user[name] ? (@user[name]).to_s : name.to_s
-        @inputs << %(<textarea name="#{name}" #{attributes}\>#{value}</textarea>)
+        @inputs << get_textarea(name, attributes)
       else
         value = @user[name] ? "value=\"#{@user[name]}\"" : ''
         @inputs << %(<input name="#{name}" type="text" #{attributes} #{value}>)
       end
     end
 
+    def atributes_to_string(hash)
+      hash.to_a.map do |element|
+        key, val = element
+        %(#{key}="#{val}")
+      end.join(' ')
+    end
+
+    def get_label(name)
+      %(<label for="#{name}"\>#{name.capitalize}</label>)
+    end
+
     def submit(name = 'Save')
       @inputs << %(<input type="submit" value="#{name}">)
+    end
+
+    def get_textarea(name, attributes)
+      value = @user[name] ? (@user[name]).to_s : name.to_s
+      %(<textarea name="#{name}" #{attributes}\>#{value}</textarea>)
     end
   end
 
