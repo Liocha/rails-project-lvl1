@@ -35,16 +35,12 @@ module HexletCode
         @inputs << %(<textarea name="#{name}" #{attributes}\>#{value}</textarea>)
       else
         value = @user[name] ? "value=\"#{@user[name]}\"" : ''
-        @inputs << %(<input name="#{name}" #{attributes} #{value}>)
+        @inputs << %(<input name="#{name}" type="text" #{attributes} #{value}>)
       end
     end
 
-    def submit(name: '')
-      if name.size != 0
-      @inputs << %(<input name="#{name}" type="submit" value="Save">)
-      else
-      @inputs << %(<input type="submit" value="Save">)
-      end
+    def submit(name = 'Save')
+      @inputs << %(<input type="submit" value="#{name}">)
     end
   end
 
