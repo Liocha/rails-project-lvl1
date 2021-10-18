@@ -36,7 +36,7 @@ module HexletCode
     end
 
     def get_input(name, options)
-      value = @user[name] ? "value=\"#{@user[name]}\"" : ''
+      value = @user[name] || ''
       HexletCode::Tag.build('input', name: name, type: 'text', value: value, **options)
     end
   end
