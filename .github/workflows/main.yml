@@ -2,18 +2,18 @@
 
 name: Github-Basic-Action
 on:
-  push:
-    branches:
-      - '**'
-    tags:
-      - '**'
+  - push
+  - pull_request
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      # Runs a single command using the runners shell
       - uses: actions/checkout@v2
-      - run: gem install bundler
-      - run: make lint;
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.2
+      - name: Install
+        run: make install
+      - name: Run linter
+        run: make lint
