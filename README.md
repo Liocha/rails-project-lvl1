@@ -2,7 +2,7 @@
 
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide)
 
-[![Github-Basic-Action](https://github.com/Liocha/rails-project-lvl1/workflows/Github-Basic-Action/badge.svg)](https://github.com/Liocha/rails-project-lvl1/actions)
+[![Github-Basic-Action](https://github.com/Liocha/rails-project-lvl1/actions/workflows/main.yml/badge.svg)](https://github.com/Liocha/rails-project-lvl1/actions/workflows/main.yml)
 
 [![hexlet-check](https://github.com/Liocha/rails-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Liocha/rails-project-lvl1/actions/workflows/hexlet-check.yml)
 

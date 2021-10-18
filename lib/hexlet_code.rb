@@ -9,7 +9,7 @@ module HexletCode
   def self.form_for(user, url: '#')
     inside_form = HexletCode::FormBuilder.new(user)
     inner = yield(inside_form).join("\n")
-    %(<form action=\"#{url}\" method=\"post\"\>\n#{inner}\n</form>)
+    HexletCode::Tag.build('form', action: url, method: 'post') { inner }
   end
 
   # documentation comment here
@@ -21,54 +21,42 @@ module HexletCode
 
     def input(name, **options)
       as = options.delete(:as)
-      attributes = atributes_to_string(options)
-      label = get_label(name)
-      @inputs << label
-      if as.to_s == 'text'
-        @inputs << get_textarea(name, attributes)
-      else
-        value = @user[name] ? "value=\"#{@user[name]}\"" : ''
-        @inputs << %(<input name="#{name}" type="text" #{attributes} #{value}>)
-      end
-    end
-
-    def atributes_to_string(hash)
-      hash.to_a.map do |element|
-        key, val = element
-        %(#{key}="#{val}")
-      end.join(' ')
-    end
-
-    def get_label(name)
-      %(<label for="#{name}"\>#{name.capitalize}</label>)
+      @inputs << HexletCode::Tag.build('label', for: name) { name.capitalize }
+      element = as.to_s == 'text' ? get_textarea(name, options) : get_input(name, options)
+      @inputs << element
     end
 
     def submit(name = 'Save')
-      @inputs << %(<input type="submit" value="#{name}">)
+      @inputs << HexletCode::Tag.build('input', type: 'submit', value: name)
     end
 
-    def get_textarea(name, attributes)
+    def get_textarea(name, options)
       value = @user[name] ? (@user[name]).to_s : name.to_s
-      %(<textarea name="#{name}" #{attributes}\>#{value}</textarea>)
+      HexletCode::Tag.build('textarea', name: name, **options) { value }
+    end
+
+    def get_input(name, options)
+      value = @user[name] ? "value=\"#{@user[name]}\"" : ''
+      HexletCode::Tag.build('input', name: name, type: 'text', value: value, **options)
     end
   end
 
   # documentation comment here
-  class Tag
+  module Tag
     def self.build(name, **attributes)
-      attribute_string = ''
-      attributes.each do |attr_name, attr_val|
-        attribute_string += " #{attr_name}=\"#{attr_val}\""
-      end
+      atributes = atributes_to_string(attributes)
       if block_given?
-        "<#{name}#{attribute_string}>#{yield}</#{name}>"
+        %(<#{name} #{atributes}\>\n#{yield}\n</#{name}>)
       else
-        "<#{name}#{attribute_string}>"
+        %(<#{name} #{atributes}>)
       end
     end
 
-    def input(name)
-      %(<input name="#{name}">)
+    def self.atributes_to_string(hash)
+      hash.to_a.map do |element|
+        key, val = element
+        %(#{key}="#{val}")
+      end.join(' ')
     end
   end
 end
