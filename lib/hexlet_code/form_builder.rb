@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # documentation comment here
 class FormBuilder
   def initialize(entity, url)

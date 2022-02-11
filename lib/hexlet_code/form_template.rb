@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+# top-level documentation comment for module FormTemplate
 module FormTemplate
   def self.render(data)
     content = data.state.map do |element|
       find_mapping(element).new(element).render
-    end.join('')
+    end.join
     wrap(content, data.url)
   end
 

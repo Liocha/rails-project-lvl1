@@ -4,9 +4,9 @@ require_relative 'hexlet_code/version'
 
 # documentation comment here
 module HexletCode
-  autoload(:FormBuilder, './lib/hexlet_code/form_builder.rb')
-  autoload(:FormTemplate, './lib/hexlet_code/form_template.rb')
-  autoload(:Inputs, './lib/hexlet_code/inputs.rb')
+  autoload(:FormBuilder, 'hexlet_code/form_builder.rb')
+  autoload(:FormTemplate, 'hexlet_code/form_template.rb')
+  autoload(:Inputs, 'hexlet_code/inputs.rb')
 
   class Error < StandardError; end
 

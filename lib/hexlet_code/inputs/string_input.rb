@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module HexletCode
   module Inputs
+    # top-level documentation comment for class HexletCode::Inputs::StringInput
     class StringInput < Base
       def initialize(element)
         super
