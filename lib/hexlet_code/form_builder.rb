@@ -11,9 +11,9 @@ class FormBuilder
   attr_reader :state, :url, :entity
 
   def input(attribute_name, **options)
-    type = options[:as] || :string
-    value = entity[attribute_name]
-    @state << { attribute_name: attribute_name, value: value, type: type }
+    type = options.delete(:as) || :string
+    value = @entity[attribute_name]
+    @state << { attribute_name: attribute_name, options: options, type: type, value: value }
   end
 
   def submit(attribute_name = '')

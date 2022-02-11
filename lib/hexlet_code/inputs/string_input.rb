@@ -6,14 +6,14 @@ module HexletCode
     class StringInput < Base
       def initialize(element)
         super
-        @label = "<label for='#{@atr_name}'>#{@atr_name}</label>\n"
+        @label = "<label for='#{@atr_name}'>#{@atr_name.capitalize}</label>\n"
       end
 
       def render
         if @value.nil?
-          "#{@label}<input name='#{@atr_name}' type='text'>\n"
+          "#{@label}<input name='#{@atr_name}' type='text' #{@atributes}>\n"
         else
-          "#{@label}<input name='#{@atr_name}' type='text' value='#{@value}'>\n"
+          "#{@label}<input name='#{@atr_name}' type='text' value='#{@value}' #{@atributes}>\n"
         end
       end
     end
