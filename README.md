@@ -1,48 +1,38 @@
-[![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
-
-[![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide)
-
 [![Github-Basic-Action](https://github.com/Liocha/rails-project-lvl1/actions/workflows/main.yml/badge.svg)](https://github.com/Liocha/rails-project-lvl1/actions/workflows/main.yml)
 
 [![hexlet-check](https://github.com/Liocha/rails-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Liocha/rails-project-lvl1/actions/workflows/hexlet-check.yml)
 
 # HexletCode
 
-Привет любезный и временно далёкий друг мой "#{here_is_your_name}"
+Првый gem созданный в рамках учебного проекта на [hexlet](https://ru.hexlet.io/?ref=257626) по программе [Разработчик на Ruby on Rails](https://ru.hexlet.io/programs/rails?ref=257626)
 
-Сперва отвечаю на человеческий вопрос Ваш, what the fuck is this?
+## Установка
 
-Это мой первый gem созданный в рамках учебного проекта на [hexlet](https://ru.hexlet.io/?ref=257626) по программе [Разработчик на Ruby on Rails](https://ru.hexlet.io/programs/rails?ref=257626)
-
-Ruby код находится в файле `lib/hexlet_code`
-Для эксперементов с кодом запускаем `bin/console`
-
-## Installation
-
-Add this line to your application's Gemfile:
+Добавьте в Gemfile:
 
 ```ruby
 gem 'hexlet_code'
 ```
 
-And then execute:
+И выполните:
 
     $ bundle install
 
-Or install it yourself as:
+Или установите его самостоятельно как:
 
     $ gem install hexlet_code
 
-## Usage
+## Использование
 
-TODO: Write usage instructions here
+Запускаем  run `bin/setup` для установки зависимостей.
 
-## Development
+## Разработка
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Ruby код находится в файле `lib/hexlet_code`
+Для экспериментов с кодом запускаем `bin/console`
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Чтобы установить этот гем на свой локальный компьютер, запустите `bundle exec rake install`. Чтобы выпустить новую версию, обновите номер версии в `version.rb`, а затем запустите `bundle exec rake release`, который создаст тег git для версии, поместит git-коммиты и созданный тег, а затем поместит файл `. gem` на [rubygems.org](https://rubygems.org). 
 
-## Contributing
+## Содействие
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hexlet_code.
+Сообщения об ошибках и запросы на pull requests приветствуются на GitHub по адресу https://github.com/Liocha/hexlet_code.
