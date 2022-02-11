@@ -12,7 +12,8 @@ class FormBuilder
 
   def input(attribute_name, **options)
     type = options.delete(:as) || :string
-    value = @entity[attribute_name]
+    value = @entity.public_send attribute_name
+
     @state << { attribute_name: attribute_name, options: options, type: type, value: value }
   end
 
