@@ -16,7 +16,7 @@ class FormBuilder
     @state << { attribute_name: attribute_name, options: options, type: type, value: value }
   end
 
-  def submit(attribute_name = '')
-    @state << { attribute_name: attribute_name, type: 'submit' }
+  def submit(value = 'Save')
+    @state << { value: value, type: 'submit' }
   end
 end

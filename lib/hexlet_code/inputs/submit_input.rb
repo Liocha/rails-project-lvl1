@@ -5,7 +5,7 @@ module HexletCode
     # top-level documentation comment for class HexletCode::Inputs::SubmitInput
     class SubmitInput < Base
       def render
-        "<input name='commit' type='submit' value='Save'>\n"
+        "<input name='commit' type='submit' value='#{@value}'>\n"
       end
     end
   end
