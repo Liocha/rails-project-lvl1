@@ -14,6 +14,6 @@ module FormTemplate
   end
 
   def self.wrap(content, url)
-    "<form action='#{url}' method='post'>\n#{content}</form>"
+    "<form action='#{url}' method='post'>\n#{content}</form>\n"
   end
 end

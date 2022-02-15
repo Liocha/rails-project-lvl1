@@ -10,7 +10,7 @@ module HexletCode
       end
 
       def render
-        "#{@label}<textarea #{@atributes} name='#{@atr_name}'>#{@value}</textarea>\n"
+        "#{@label}<textarea#{@atributes} name='#{@atr_name}'>#{@value}</textarea>\n"
       end
     end
   end

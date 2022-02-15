@@ -9,8 +9,8 @@ module HexletCode
         @value = element[:value]
         @atributes = element[:options].to_a.map do |item|
           key, val = item
-          %(#{key}="#{val}")
-        end.join(' ')
+          %( #{key}='#{val}')
+        end.join
       end
     end
   end

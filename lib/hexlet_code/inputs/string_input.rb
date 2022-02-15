@@ -11,9 +11,9 @@ module HexletCode
 
       def render
         if @value.nil?
-          "#{@label}<input name='#{@atr_name}' type='text' #{@atributes}>\n"
+          "#{@label}<input name='#{@atr_name}' type='text'#{@atributes}>\n"
         else
-          "#{@label}<input name='#{@atr_name}' type='text' value='#{@value}' #{@atributes}>\n"
+          "#{@label}<input name='#{@atr_name}' type='text' value='#{@value}'#{@atributes}>\n"
         end
       end
     end
