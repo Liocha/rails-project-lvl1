@@ -6,15 +6,13 @@ module HexletCode
     class StringInput < Base
       def initialize(element)
         super
-        @label = "<label for='#{@atr_name}'>#{@atr_name.capitalize}</label>\n"
+        @label = HexletCode::Tag.build('label', for: @atr_name) { @atr_name.capitalize }
+        @params = { 'name' => @atr_name, 'type' => 'text', 'value' => @value }.merge(@options)
       end
 
       def render
-        if @value.nil?
-          "#{@label}<input name='#{@atr_name}' type='text'#{@atributes}>\n"
-        else
-          "#{@label}<input name='#{@atr_name}' type='text' value='#{@value}'#{@atributes}>\n"
-        end
+        input = HexletCode::Tag.build('input', **@params)
+        "#{@label}#{input}"
       end
     end
   end

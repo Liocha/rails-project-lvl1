@@ -4,8 +4,13 @@ module HexletCode
   module Inputs
     # top-level documentation comment for class HexletCode::Inputs::SubmitInput
     class SubmitInput < Base
+      def initialize(element)
+        super
+        @params = { 'name' => 'commit', 'type' => 'submit', 'value' => @value }
+      end
+
       def render
-        HexletCode::Tag.build('input', name: 'commit', type: 'submit', value: @value)
+        HexletCode::Tag.build('input', **@params)
       end
     end
   end

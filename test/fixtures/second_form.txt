@@ -2,6 +2,6 @@
 <label for='name'>Name</label>
 <input name='name' type='text' value='rot' class='hyl'>
 <label for='job'>Job</label>
-<textarea rows='50' cols='50' name='job'>Bullshit</textarea>
+<textarea name='job' rows='50' cols='50'>Bullshit</textarea>
 <input name='commit' type='submit' value='Wow'>
 </form>

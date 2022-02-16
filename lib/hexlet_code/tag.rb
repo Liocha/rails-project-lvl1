@@ -7,7 +7,7 @@ module HexletCode
     def self.build(name, **attributes)
       atributes = atributes_to_string(attributes)
       if block_given?
-        %(<#{name} #{atributes}\>\n#{yield}\n</#{name}>)
+        %(<#{name}#{atributes}\>#{yield}</#{name}>\n)
       else
         %(<#{name}#{atributes}>\n)
       end
