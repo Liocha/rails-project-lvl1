@@ -5,13 +5,13 @@ module HexletCode
     # top-level documentation comment for class HexletCode::Inputs::Base
     class Base
       def initialize(element)
-        @atr_name = element[:attribute_name]
+        @attribute_name = element[:attribute_name]
         @value = element[:value] || ''
         @options = element[:options]
       end
 
-      def get_label
-        HexletCode::Tag.build('label', for: @atr_name) { @atr_name.capitalize }
+      def label
+        HexletCode::Tag.build('label', for: @attribute_name) { @attribute_name.capitalize }
       end
     end
   end

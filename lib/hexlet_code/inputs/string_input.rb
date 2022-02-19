@@ -6,12 +6,12 @@ module HexletCode
     class StringInput < Base
       def initialize(element)
         super
-        @params = { 'name' => @atr_name, 'type' => 'text', 'value' => @value }.merge(@options)
+        @params = { 'name' => @attribute_name, 'type' => 'text', 'value' => @value }.merge(@options)
       end
 
       def render
         input = HexletCode::Tag.build('input', **@params)
-        "#{get_label}#{input}"
+        "#{label}#{input}"
       end
     end
   end

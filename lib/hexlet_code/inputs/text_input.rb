@@ -6,12 +6,12 @@ module HexletCode
     class TextInput < Base
       def initialize(element)
         super
-        @params = { 'name' => @atr_name }.merge(@options)
+        @params = { 'name' => @attribute_name }.merge(@options)
       end
 
       def render
         input = HexletCode::Tag.build('textarea', **@params) { @value }
-        "#{get_label}#{input}"
+        "#{label}#{input}"
       end
     end
   end
