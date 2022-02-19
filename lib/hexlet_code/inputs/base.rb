@@ -9,6 +9,10 @@ module HexletCode
         @value = element[:value] || ''
         @options = element[:options]
       end
+
+      def get_label
+        HexletCode::Tag.build('label', for: @atr_name) { @atr_name.capitalize }
+      end
     end
   end
 end

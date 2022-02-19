@@ -7,5 +7,5 @@ lint:
 la:
 	bundle exec rubocop -A .
 
-test:
+tests:
 	rake test

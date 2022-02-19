@@ -11,10 +11,9 @@ class FormBuilder
   attr_reader :state, :url, :entity
 
   def input(attribute_name, **options)
-    type = options.delete(:as) || :string
+    type = options[:as] || :string
     value = @entity.public_send attribute_name
-
-    @state << { attribute_name: attribute_name, options: options, type: type, value: value }
+    @state << { attribute_name: attribute_name, options: options.except(:as), type: type, value: value }
   end
 
   def submit(value = 'Save')

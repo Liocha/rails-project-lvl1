@@ -8,7 +8,7 @@ class HexletCodeTest < Minitest::Test
   end
 
   def test_first_form_equal
-    expected = file_data('first_form.txt')
+    expected = get_fixture_data('first_form.html')
 
     my_user = Struct.new(:name, :job, keyword_init: true)
     user = my_user.new job: 'hexlet'
@@ -23,7 +23,7 @@ class HexletCodeTest < Minitest::Test
   end
 
   def test_second_form_equal
-    expected = file_data('second_form.txt')
+    expected = get_fixture_data('second_form.html')
 
     my_user = Struct.new(:name, :job, keyword_init: true)
     user = my_user.new name: 'rot', job: 'Bullshit'
@@ -47,6 +47,6 @@ class HexletCodeTest < Minitest::Test
         f.input :age
       end
     end
-    assert_equal "undefined method `age' for #<struct name=nil, job=\"hexlet\">", err.message
+    assert_equal 'NoMethodError', err.class.to_s
   end
 end
