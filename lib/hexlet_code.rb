@@ -11,8 +11,8 @@ module HexletCode
 
   class Error < StandardError; end
 
-  def self.form_for(entity, url: '#')
-    builder = FormBuilder.new(entity, url)
+  def self.form_for(entity, **attributes)
+    builder = FormBuilder.new(entity, attributes)
     yield builder
     FormTemplate.render(builder)
   end

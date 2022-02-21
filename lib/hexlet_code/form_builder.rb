@@ -2,13 +2,13 @@
 
 # documentation comment here
 class FormBuilder
-  def initialize(entity, url)
+  def initialize(entity, attributes)
     @entity = entity
-    @url = url
+    @attributes = attributes
     @state = []
   end
 
-  attr_reader :state, :url, :entity
+  attr_reader :state, :attributes, :entity
 
   def input(attribute_name, **options)
     type = options[:as] || :string
@@ -16,7 +16,7 @@ class FormBuilder
     @state << { attribute_name: attribute_name, options: options.except(:as), type: type, value: value }
   end
 
-  def submit(value = 'Save')
-    @state << { value: value, type: 'submit' }
+  def submit(value = 'Save', **options)
+    @state << { options: options, type: 'submit', value: value }
   end
 end

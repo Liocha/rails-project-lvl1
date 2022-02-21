@@ -6,7 +6,7 @@ module HexletCode
     class TextInput < Base
       def initialize(element)
         super
-        @params = { 'name' => @attribute_name }.merge(@options)
+        @params = { name: @attribute_name }.merge(@options)
       end
 
       def render

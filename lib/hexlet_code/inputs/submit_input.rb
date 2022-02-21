@@ -6,7 +6,7 @@ module HexletCode
     class SubmitInput < Base
       def initialize(element)
         super
-        @params = { 'name' => 'commit', 'type' => 'submit', 'value' => @value }
+        @params = { name: 'commit', type: 'submit', value: @value }.merge(@options)
       end
 
       def render

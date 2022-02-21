@@ -5,17 +5,17 @@ module HexletCode
   # top-level documentation comment for module HexletCode::Tag
   module Tag
     def self.build(name, **attributes)
-      atributes = atributes_to_string(attributes)
-      if block_given?
-        %(<#{name}#{atributes}\>#{yield}</#{name}>\n)
+      single_html_tags = %w[!doctype area base br col embed hr img input keygen link meta param param source track wbr]
+      attributes = attributes_to_string(attributes)
+      if single_html_tags.include?(name)
+        %(<#{name}#{attributes}>\n)
       else
-        %(<#{name}#{atributes}>\n)
+        %(<#{name}#{attributes}\>#{yield}</#{name}>\n)
       end
     end
 
-    def self.atributes_to_string(hash)
-      hash.to_a.map do |element|
-        key, val = element
+    def self.attributes_to_string(hash)
+      hash.map do |key, val|
         %( #{key}='#{val}')
       end.join
     end
