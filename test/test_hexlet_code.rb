@@ -38,7 +38,7 @@ class HexletCodeTest < Minitest::Test
   end
 
   def test_field_does_not_exist_error
-    err = assert_raises do
+    assert_raises NoMethodError do
       my_user = Struct.new(:name, :job, keyword_init: true)
       user = my_user.new job: 'hexlet'
       HexletCode.form_for user, url: '/users' do |f|
@@ -47,6 +47,5 @@ class HexletCodeTest < Minitest::Test
         f.input :age
       end
     end
-    assert_equal 'NoMethodError', err.class.to_s
   end
 end
