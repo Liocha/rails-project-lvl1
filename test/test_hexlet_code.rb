@@ -19,7 +19,7 @@ class HexletCodeTest < Minitest::Test
       f.submit
     end
 
-    assert_equal(expected, result)
+    assert(expected == result)
   end
 
   def test_second_form_equal
@@ -32,7 +32,7 @@ class HexletCodeTest < Minitest::Test
       f.input :job, as: :text, rows: 50, cols: 50
       f.submit 'Wow'
     end
-    assert_equal(expected, result)
+    assert(expected == result)
   end
 
   def test_field_does_not_exist_error
